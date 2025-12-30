@@ -1,0 +1,43 @@
+String data;
+int led1=3,led2=4,led3=5;
+void setup() {
+  pinMode(led1,OUTPUT);
+  pinMode(led2,OUTPUT);
+  pinMode(led3,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if(Serial.available()){
+    data=Serial.readString();
+    Serial.print("Recived: ");
+    Serial.println(data);
+    data.trim();
+  }
+  if(data=="led1 on")
+  {
+    digitalWrite(led1,HIGH);
+  }
+  else if(data=="led1 off")
+  {
+    digitalWrite(led1,LOW);
+  }
+  else if(data=="led2 on")
+  {
+    digitalWrite(led2,HIGH);
+  }
+  else if(data=="led2 off")
+  {
+    digitalWrite(led2,LOW);
+  }
+  else if(data=="led3 on")
+  {
+    digitalWrite(led3,HIGH);
+  }
+  else if(data=="led3 off")
+  {
+    digitalWrite(led3,LOW);
+  }
+  
+
+}
